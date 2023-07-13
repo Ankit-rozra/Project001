@@ -1,0 +1,104 @@
+import React, { useState } from 'react';
+import TopNav from './TopNav';
+import '../Css/Contact.css';
+import '../Css/Log.css';
+import { useSelector, useDispatch } from 'react-redux';
+function ContactScreen() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: 'SET_NAME',
+      payload: name,
+    });
+    dispatch({
+      type: 'SET_EMAIL',
+      payload: email,
+    });
+    dispatch({
+      type: 'SET_MESSAGE',
+      payload: message,
+    });
+    dispatch({
+      type: 'ADD_VALUE',
+      payload: {
+        name: name,
+        email: email,
+        message: message,
+      },
+    });
+    setEmail('');
+    setName('');
+    setMessage('');
+  };
+  const state = useSelector((state) => state.formData.values);
+  return (
+    <div>
+      <div className="about">
+        <TopNav display="Contact us" />
+        <div>
+          <div className="companyName">Contact us</div>
+          <div className="contactMid">
+            <div className="companyContact">
+              <span>Phone no. - </span> <span>+91jfkjsdbfsvx</span>
+            </div>
+            <div className="companyContact">
+              <span>Email - </span> <span>support@gmail.com</span>
+            </div>
+          </div>
+        </div>
+        <div className="Log-form">
+          <h1>Contact Form</h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <input
+                className="field"
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
+                className="field"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
+                className="field"
+                type="text"
+                placeholder="Message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </div>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+          <div>
+            <h2>Your Information</h2>
+            <div>
+              {state.map((value) => (
+                <div key={value.id}>
+                  {value.name} {value.email} {value.message}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default ContactScreen;

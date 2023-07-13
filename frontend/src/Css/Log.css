@@ -1,0 +1,27 @@
+.Log-form {
+  text-align: center;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.7rem;
+  font-size: 1.5rem;
+}
+input {
+  width: 40rem;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  @media (max-width: 980px) {
+    width: 25rem;
+  }
+  @media (max-width: 720px) {
+    width: 13rem;
+  }
+  @media (max-width: 520px) {
+    width: 10rem;
+  }
+}
