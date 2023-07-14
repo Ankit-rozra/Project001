@@ -78,11 +78,11 @@ function VNavbar() {
         </li>
         <li className="main-content">
           <a
-            href="/add"
+            href="/network"
             className="nav-link"
             onClick={() => handleOptionClick('Add member')}
           >
-            Add Member!
+            My Network
           </a>
         </li>
       </ul>

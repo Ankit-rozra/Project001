@@ -8,6 +8,7 @@ function Register() {
   const [email, setEmail] = useState('');
   const [aadhar, setAadhar] = useState('');
   const [address, setAddress] = useState('');
+  const [referral, setReferral] = useState('');
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ function Register() {
         email: email,
         aadhar: aadhar,
         address: address,
+        referral: referral,
       },
     });
     setUsername('');
@@ -26,6 +28,7 @@ function Register() {
     setPassword('');
     setAadhar('');
     setAddress('');
+    setReferral('');
   };
   const state = useSelector((state) => state.authentication.credentials);
   // const Sestate = useMemo(() => state.credentials, [state]);
@@ -76,6 +79,14 @@ function Register() {
           />
         </div>
         <div>
+          <input
+            type="text"
+            placeholder="Referral code"
+            value={referral}
+            onChange={(e) => setReferral(e.target.value)}
+          />
+        </div>
+        <div>
           <button onClick={handleSubmit}>Submit</button>
         </div>
         <div>
@@ -86,6 +97,7 @@ function Register() {
               {item.email}
               {item.aadhar}
               {item.address}
+              {item.referral}
             </div>
           ))}
         </div>

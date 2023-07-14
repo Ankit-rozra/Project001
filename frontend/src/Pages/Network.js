@@ -1,11 +1,11 @@
 import React from 'react';
 import TopNav from './TopNav';
-function Add() {
+function Network() {
   return (
     <div>
-      <TopNav display="Add Member" />
+      <TopNav display="Network" />
     </div>
   );
 }
 
-export default Add;
+export default Network;
