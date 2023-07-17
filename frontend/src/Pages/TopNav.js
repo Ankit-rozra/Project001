@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import '../Css/TopNav.css';
-
-import { FaBars } from 'react-icons/fa';
-
-import { FaBell } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import LiveDate from '../Components/LiveDate';
-
-import { FaShoppingCart } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const HomeScreen = (props) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(true);
@@ -27,32 +27,57 @@ const HomeScreen = (props) => {
   const handleIconClick = () => {
     setIsDropdownVisible(isDropdownVisible);
   };
+
+  const state = useSelector((state) => state.data);
+  const num = state.length;
   return (
     <nav className="Hnavbar">
       <ul className="Hnavbar-nav">
-        {screen > 600 && (
+        {screen > 820 && (
           <li className="Hnav-item">
             <a className="Hnav-link">{props.display}</a>
           </li>
         )}
 
         <li className="Hnav-item-right ExampleComponent">
-          {screen > 700 ? (
-            <span>
-              <FaShoppingCart className="icons" />
-              <FaBell className="icons" />
-              <LiveDate />
+          {screen > 690 ? (
+            <span className="iconBox">
+              <a href="/cart" className="iconButton">
+                <FontAwesomeIcon icon={faShoppingCart} className="icons" />
+                <span className="cart">
+                  <sup>{num}</sup>
+                </span>
+              </a>
+              <a href="/notification" className="iconButton">
+                {' '}
+                <FontAwesomeIcon icon={faBell} className="icons" />
+              </a>
+              <a href="/profile" className="iconButton">
+                <FontAwesomeIcon icon={faUserCircle} className="icons" />
+              </a>
+              {/* <LiveDate /> */}
             </span>
           ) : (
             <div>
               <div className="hamburger-icon" onClick={toggleOptions}>
-                <FaBars />
+                <FontAwesomeIcon icon={faBars} />
               </div>
               {!isCollapsed && (
                 <ul className="options">
-                  <li>1</li>
-                  <li>2</li>
-                  <li>3</li>
+                  <li>
+                    <a href="/cart" className="iconButton">
+                      <FontAwesomeIcon
+                        icon={faShoppingCart}
+                        className="icons"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <FontAwesomeIcon icon={faBell} className="icons" />
+                  </li>{' '}
+                  <li>
+                    <FontAwesomeIcon icon={faUserCircle} className="icons" />
+                  </li>{' '}
                 </ul>
               )}
             </div>

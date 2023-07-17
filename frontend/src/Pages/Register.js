@@ -9,6 +9,10 @@ function Register() {
   const [aadhar, setAadhar] = useState('');
   const [address, setAddress] = useState('');
   const [referral, setReferral] = useState('');
+  const [phone, setPhone] = useState('');
+  const [upi, setUpi] = useState('');
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +25,10 @@ function Register() {
         aadhar: aadhar,
         address: address,
         referral: referral,
+        phone: phone,
+        upi: upi,
+        question: question,
+        answer: answer,
       },
     });
     setUsername('');
@@ -29,9 +37,12 @@ function Register() {
     setAadhar('');
     setAddress('');
     setReferral('');
+    setPhone('');
+    setUpi('');
+    setQuestion('n/a');
+    setAnswer('');
   };
   const state = useSelector((state) => state.authentication.credentials);
-  // const Sestate = useMemo(() => state.credentials, [state]);
   return (
     <div>
       <TopNav display="Sign up" />
@@ -51,6 +62,14 @@ function Register() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>{' '}
+        <div>
+          <input
+            type="text"
+            placeholder="Phone number"
+            value={phone}
+            onChange={(e) => setReferral(e.target.value)}
           />
         </div>
         <div>
@@ -87,6 +106,50 @@ function Register() {
           />
         </div>
         <div>
+          <input
+            type="text"
+            placeholder="Upi id"
+            value={upi}
+            onChange={(e) => setUpi(e.target.value)}
+          />
+        </div>
+        <div>
+          <select
+            className="choice"
+            name="country"
+            id="country"
+            onChange={(e) => setQuestion(e.target.value)}
+          >
+            <option value="n/a">Select Security Question</option>
+            <option value="What is the name of your first pet?">
+              What is the name of your first pet?
+            </option>
+            <option value="What is the name of your high school?">
+              What is the name of your high school?
+            </option>
+            <option value="What is your favorite color?">
+              What is your favorite color?
+            </option>
+            <option value=" What is your birth city?">
+              What is your birth city?
+            </option>
+            <option value="What is your favorite book?">
+              What is your favorite book?
+            </option>
+            <option value="What is your favorite sports team?">
+              What is your favorite sports team?
+            </option>
+          </select>
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Answer"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+          />
+        </div>
+        <div>
           <button onClick={handleSubmit}>Submit</button>
         </div>
         <div>
@@ -98,6 +161,9 @@ function Register() {
               {item.aadhar}
               {item.address}
               {item.referral}
+              {item.upi}
+              {item.question}
+              {item.answer}
             </div>
           ))}
         </div>

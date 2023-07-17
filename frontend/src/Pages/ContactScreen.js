@@ -5,7 +5,6 @@ import '../Css/Log.css';
 import { useSelector, useDispatch } from 'react-redux';
 function ContactScreen() {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
 
@@ -16,10 +15,6 @@ function ContactScreen() {
       payload: name,
     });
     dispatch({
-      type: 'SET_EMAIL',
-      payload: email,
-    });
-    dispatch({
       type: 'SET_MESSAGE',
       payload: message,
     });
@@ -27,11 +22,10 @@ function ContactScreen() {
       type: 'ADD_VALUE',
       payload: {
         name: name,
-        email: email,
+
         message: message,
       },
     });
-    setEmail('');
     setName('');
     setMessage('');
   };
@@ -58,18 +52,9 @@ function ContactScreen() {
               <input
                 className="field"
                 type="text"
-                placeholder="Name"
+                placeholder="Username"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div>
-              <input
-                className="field"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -85,7 +70,7 @@ function ContactScreen() {
               <button type="submit">Submit</button>
             </div>
           </form>
-          <div>
+          {/* <div>
             <h2>Your Information</h2>
             <div>
               {state.map((value) => (
@@ -94,7 +79,7 @@ function ContactScreen() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

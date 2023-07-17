@@ -8,11 +8,17 @@ import Login from './Login';
 import Register from './Register';
 import RewardScreen from './RewardScreen';
 import Network from './Network';
+import Cart from './Cart';
+import Notification from './Notification';
+import Profile from './Profile';
+import Forgot from './Forgot';
 function Page() {
   return (
     <Router>
       <Routes>
+        <Route path="/notification" element={<Notification />} />
         <Route path="/" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/products" element={<ProductScreen />} />
         <Route path="/rewards" element={<RewardScreen />} />
         <Route path="/network" element={<Network />} />
@@ -20,6 +26,9 @@ function Page() {
         <Route path="/contact" element={<ContactScreen />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<Cart />} />
+
+        <Route path="/forgot" element={<Forgot />} />
       </Routes>
     </Router>
   );

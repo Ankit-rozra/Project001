@@ -44,3 +44,10 @@
 .card-reward {
   font-size: 1rem;
 }
+
+/* Cart */
+.cartButton {
+  background-color: rgba(177, 177, 201, 0.5);
+  margin: 0.5rem 1rem;
+  width: 3rem;
+}
