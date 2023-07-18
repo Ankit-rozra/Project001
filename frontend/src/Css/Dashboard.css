@@ -43,3 +43,20 @@
   color: black;
   font-weight: 500;
 }
+.q {
+  background: linear-gradient(to left, #d38f8f, #6e9ceb);
+  /* background: linear-gradient(to right, #d38f8f, #846fdb); */
+}
+.w {
+  background: linear-gradient(to right, #f8c378, #da886d);
+}
+.e {
+  background: linear-gradient(to left, #f8c378, #da886d);
+  /* background: linear-gradient(to right, #a52e3c, #8133a0); */
+}
+.r {
+  background: linear-gradient(to right, #ef90d4, #6e9ceb);
+}
+.t {
+  background: linear-gradient(to right, #84fab0, #8fd3f4);
+}

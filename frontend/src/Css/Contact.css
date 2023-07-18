@@ -50,7 +50,7 @@
 }
 .companyContact {
   margin: 1rem auto;
-  background-color: rgb(66, 141, 181);
+  background: linear-gradient(to right, #a9edc2, #c4f4d6, #a4d8f1, #bbdcec);
   padding: 1rem;
   border-radius: 1rem;
   font-size: 1.3rem;

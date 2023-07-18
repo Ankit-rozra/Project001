@@ -44,9 +44,9 @@ const HomeScreen = (props) => {
             <span className="iconBox">
               <a href="/cart" className="iconButton">
                 <FontAwesomeIcon icon={faShoppingCart} className="icons" />
-                <span className="cart">
+                {/* <span className="cart">
                   <sup>{num}</sup>
-                </span>
+                </span> */}
               </a>
               <a href="/notification" className="iconButton">
                 {' '}

@@ -6,7 +6,7 @@
 
 .card {
   padding: 0.6rem;
-  background-color: #87c8da;
+  background: linear-gradient(to bottom, #eba6d6, #eab8db, #7fa5e6, #8fd3f4);
   text-align: center;
   width: 250px;
   margin: 10px;

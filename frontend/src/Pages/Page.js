@@ -12,6 +12,7 @@ import Cart from './Cart';
 import Notification from './Notification';
 import Profile from './Profile';
 import Forgot from './Forgot';
+import OrderScreen from './OrderScreen';
 function Page() {
   return (
     <Router>
@@ -27,7 +28,7 @@ function Page() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
-
+        <Route path="/order" element={<OrderScreen />} />
         <Route path="/forgot" element={<Forgot />} />
       </Routes>
     </Router>

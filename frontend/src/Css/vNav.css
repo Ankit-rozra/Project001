@@ -1,4 +1,12 @@
+.navbar-container {
+  height: 200rem;
+  border: 1px solid #ccc;
+}
+
 .navbar {
+  height: 95%;
+  /* Enable vertical scrolling when necessary */
+  overflow-y: auto;
   padding: 1rem;
   box-sizing: border-box;
   width: 15rem;
@@ -6,7 +14,6 @@
   border-radius: 1rem;
   position: fixed;
   text-align: center;
-  height: 95vh;
   margin: 1rem;
   @media (max-width: 510px) {
     width: 12rem;
@@ -14,6 +21,7 @@
 }
 
 .navbar-nav {
+  height: auto;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -47,14 +55,16 @@
   display: block;
   text-decoration: none;
   color: white;
-  position: absolute;
   bottom: 1.5rem;
   text-align: center;
-  left: 50%;
-  transform: translateX(-50%);
   background-color: rgb(66, 141, 181);
-  padding: 0 0rem;
+  margin: 0 1rem;
+  padding: 0 2rem;
+  height: 5rem;
   border-radius: 0.8rem;
+  @media (max-height) {
+    /* margin: 0; */
+  }
 }
 .main-content:hover {
   background-color: #1f6e8c;
@@ -65,18 +75,4 @@
 .top {
   border-bottom: 0.1px ridge white;
   padding-bottom: 0.3rem;
-}
-.scroll-bar {
-  width: 10px;
-  height: 100%;
-  background-color: #ccc;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.scroll-content {
-  overflow-y: scroll;
-  height: 100%;
 }

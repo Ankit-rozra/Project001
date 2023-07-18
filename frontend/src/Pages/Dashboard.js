@@ -6,23 +6,23 @@ function Dashboard() {
     <div>
       <TopNav display="Dashboard" />
       <ul className="Dash">
-        <li className="Earning">
-          <div className="left">Pair Income</div>
+        <li className="Earning q">
+          <div className="left ">Pair Income</div>
           <div className="left">Rs. 0000</div>
         </li>
-        <li className="Earning">
+        <li className="Earning w">
           <div className="left">Autopool Income</div>
           <div className="left">Rs. 0000</div>
         </li>
-        <li className="Earning">
+        <li className="Earning e">
           <div className="left">Repurchase Income</div>
           <div className="left">Rs. 0000</div>
         </li>
-        <li className="Earning">
+        <li className="Earning r">
           <div className="left">B.V.</div>
           <div className="left">Rs. 0000</div>
         </li>
-        <li className="Earning">
+        <li className="Earning t">
           <div className="left">Total Income</div>
           <div className="left">Rs. 0000</div>
         </li>
