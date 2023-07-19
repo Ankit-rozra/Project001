@@ -13,7 +13,7 @@ function App() {
         value: 80,
         density: {
           enable: true,
-          area: 1000,
+          area: 3000,
         },
       },
       color: {
@@ -26,18 +26,18 @@ function App() {
         value: 0.5,
       },
       size: {
-        value: { min: 2, max: 7 },
+        value: { min: 4, max: 7 },
       },
-      links: {
-        // enable: true,
-        distance: 400,
-        color: '#808080',
-        opacity: 0.4,
-        width: 1,
-      },
+      // links: {
+      // enable: true,
+      // distance: 400,
+      // color: '#808080',
+      // opacity: 0.4,
+      // width: 1,
+      // },
       move: {
         enable: true,
-        speed: 3,
+        speed: 1,
         direction: 'none',
         random: false,
         straight: false,
@@ -50,21 +50,21 @@ function App() {
           enable: true,
           mode: 'grab',
         },
-        onClick: {
-          enable: true,
-          mode: 'push',
-        },
+        // onClick: {
+        //   enable: true,
+        //   mode: 'push',
+        // },
       },
       modes: {
         grab: {
           distance: 140,
-          links: {
-            opacity: 1,
-          },
+          // links: {
+          //   opacity: 1,
+          // },
         },
-        push: {
-          quantity: 4,
-        },
+        // push: {
+        //   quantity: 4,
+        // },
       },
     },
   };

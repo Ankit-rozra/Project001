@@ -2,7 +2,6 @@
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: flex-start; */
   padding: 0;
   font-size: 1.5rem;
   padding-left: 2rem;
@@ -42,7 +41,7 @@
 .icons {
   margin-left: 3rem;
   font-size: 1.5rem;
-  @media (max-width: 690px) {
+  @media (max-width: 700px) {
     padding: 1rem;
   }
 }
@@ -56,8 +55,18 @@
   flex-wrap: wrap;
 }
 .options {
+  margin-top: 1.5rem;
   list-style: none;
+  text-align: center;
+  margin-right: 3rem;
 }
 .cart {
   padding: 0 8px;
+}
+.hamburger-icon {
+  text-align: center;
+}
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }

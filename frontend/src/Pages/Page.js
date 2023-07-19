@@ -13,6 +13,11 @@ import Notification from './Notification';
 import Profile from './Profile';
 import Forgot from './Forgot';
 import OrderScreen from './OrderScreen';
+import OrderRequest from './OrderRequest';
+import RewardRequest from './RewardRequest';
+import RegisterRequest from './RegisterRequest';
+import ServiceRequest from './ServiceRequest';
+import Edit from './Edit';
 function Page() {
   return (
     <Router>
@@ -30,6 +35,11 @@ function Page() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<OrderScreen />} />
         <Route path="/forgot" element={<Forgot />} />
+        <Route path="/requestOrder" element={<OrderRequest />} />
+        <Route path="/requestReward" element={<RewardRequest />} />
+        <Route path="/requestRegister" element={<RegisterRequest />} />
+        <Route path="/requestService" element={<ServiceRequest />} />
+        <Route path="/edit" element={<Edit />} />
       </Routes>
     </Router>
   );

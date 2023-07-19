@@ -32,15 +32,15 @@ const HomeScreen = (props) => {
   const num = state.length;
   return (
     <nav className="Hnavbar">
-      <ul className="Hnavbar-nav">
-        {screen > 820 && (
-          <li className="Hnav-item">
+      <div className="Hnavbar-nav">
+        {screen > 700 && (
+          <span className="Hnav-item">
             <a className="Hnav-link">{props.display}</a>
-          </li>
+          </span>
         )}
 
-        <li className="Hnav-item-right ExampleComponent">
-          {screen > 690 ? (
+        <span className="Hnav-item-right ExampleComponent">
+          {screen > 700 ? (
             <span className="iconBox">
               <a href="/cart" className="iconButton">
                 <FontAwesomeIcon icon={faShoppingCart} className="icons" />
@@ -59,31 +59,36 @@ const HomeScreen = (props) => {
             </span>
           ) : (
             <div>
+              <div className="title">{props.display}</div>
               <div className="hamburger-icon" onClick={toggleOptions}>
                 <FontAwesomeIcon icon={faBars} />
               </div>
               {!isCollapsed && (
-                <ul className="options">
-                  <li>
+                <div className="options">
+                  <div>
                     <a href="/cart" className="iconButton">
                       <FontAwesomeIcon
                         icon={faShoppingCart}
                         className="icons"
                       />
                     </a>
-                  </li>
-                  <li>
-                    <FontAwesomeIcon icon={faBell} className="icons" />
-                  </li>{' '}
-                  <li>
-                    <FontAwesomeIcon icon={faUserCircle} className="icons" />
-                  </li>{' '}
-                </ul>
+                  </div>
+                  <div>
+                    <a href="/notification" className="iconButton">
+                      <FontAwesomeIcon icon={faBell} className="icons" />
+                    </a>
+                  </div>
+                  <div>
+                    <a href="/profile" className="iconButton">
+                      <FontAwesomeIcon icon={faUserCircle} className="icons" />
+                    </a>
+                  </div>{' '}
+                </div>
               )}
             </div>
           )}
-        </li>
-      </ul>
+        </span>
+      </div>
     </nav>
   );
 };

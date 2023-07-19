@@ -35,9 +35,6 @@
   margin-top: 20px;
 }
 .field {
-  /* margin-right: 20rem; */
-  /* max-width: 200px; */
-  /* width: 22rem; */
   @media (max-width: 510px) {
     max-width: 150px;
   }
@@ -58,10 +55,14 @@
   font-weight: 500;
   border: #000 solid 1px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  @media (max-width: 590px) {
+  @media (max-width: 670px) {
     font-size: 1.1rem;
   }
-  @media (max-width: 552px) {
-    max-width: 150px;
+  @media (max-width: 570px) {
+    max-width: 10rem;
+    padding: 0.5rem;
+  }
+  @media (max-width: 549px) {
+    font-size: 1rem;
   }
 }
