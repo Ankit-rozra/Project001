@@ -2,31 +2,58 @@ import React, { useState } from 'react';
 import TopNav from './TopNav';
 import '../Css/Contact.css';
 import '../Css/Log.css';
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 function ContactScreen() {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({
-      type: 'SET_NAME',
-      payload: name,
-    });
-    dispatch({
-      type: 'SET_MESSAGE',
-      payload: message,
-    });
-    dispatch({
-      type: 'ADD_VALUE',
-      payload: {
-        name: name,
+    const feedbackData = {
+      username: username, // Assuming the "name" field is for the email (you can change this accordingly)
+      message: message,
+    };
+    const jsonString = JSON.stringify(feedbackData);
+    try {
+      const response = await axios.post(
+        'http://mlmproject.pythonanywhere.com/contact/',
+        jsonString
+      );
 
-        message: message,
-      },
-    });
-    setName('');
+      // Check if the response contains the 'message' field
+      if (
+        response.data &&
+        response.data.message === 'Feedback saved successfully'
+      ) {
+        // Handle success (feedback submission successful)
+        console.log('Feedback saved successfully');
+      } else {
+        // Handle failure (feedback submission failed)
+        console.log('Feedback submission failed');
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+
+    // dispatch({
+    //   type: 'SET_NAME',
+    //   payload: name,
+    // });
+    // dispatch({
+    //   type: 'SET_MESSAGE',
+    //   payload: message,
+    // });
+    // dispatch({
+    //   type: 'ADD_VALUE',
+    //   payload: {
+    //     name: name,
+
+    //     message: message,
+    //   },
+    // });
+    setUsername('');
     setMessage('');
   };
   const state = useSelector((state) => state.formData.values);
@@ -53,8 +80,8 @@ function ContactScreen() {
                 className="field"
                 type="text"
                 placeholder="Username"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div>

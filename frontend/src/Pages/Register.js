@@ -2,43 +2,54 @@ import TopNav from './TopNav';
 import React, { useState } from 'react';
 import '../Css/Log.css';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+
 function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [aadhar, setAadhar] = useState('');
   const [address, setAddress] = useState('');
-  const [referral, setReferral] = useState('');
+  // const [referral, setReferral] = useState('');
   const [phone, setPhone] = useState('');
-  const [upi, setUpi] = useState('');
-  const [question, setQuestion] = useState('');
+  // const [upi, setUpi] = useState('');
+  const [secret_question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: 'SIGNUP',
-      payload: {
-        username: username,
-        password: password,
-        email: email,
-        aadhar: aadhar,
-        address: address,
-        referral: referral,
-        phone: phone,
-        upi: upi,
-        question: question,
-        answer: answer,
-      },
-    });
+    const formData = {
+      username: username,
+      password: password,
+      email: email,
+      aadhar: aadhar,
+      phone: phone,
+      address: address,
+      secret_question: secret_question,
+      answer: answer,
+    };
+    const jsonString = JSON.stringify(formData);
+    // console.log(jsonString);
+    axios
+      .post('http://mlmproject.pythonanywhere.com/users/signup/', jsonString)
+      .then((response) => {
+        setSuccessMessage(response.data.message);
+        // Handle the response from the server if needed
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the request
+        console.error('Error:', error);
+      });
     setUsername('');
     setEmail('');
     setPassword('');
     setAadhar('');
     setAddress('');
-    setReferral('');
+    // setReferral('');
     setPhone('');
-    setUpi('');
+    // setUpi('');
     setQuestion('n/a');
     setAnswer('');
   };
@@ -69,7 +80,7 @@ function Register() {
             type="text"
             placeholder="Phone number"
             value={phone}
-            onChange={(e) => setReferral(e.target.value)}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </div>
         <div>
@@ -97,22 +108,22 @@ function Register() {
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
-        <div>
+        {/* <div>
           <input
             type="text"
             placeholder="Referral code"
             value={referral}
             onChange={(e) => setReferral(e.target.value)}
           />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <input
             type="text"
             placeholder="Upi id"
             value={upi}
             onChange={(e) => setUpi(e.target.value)}
           />
-        </div>
+        </div> */}
         <div>
           <select
             className="choice"
@@ -152,6 +163,7 @@ function Register() {
         <div>
           <button onClick={handleSubmit}>Submit</button>
         </div>
+        {successMessage && <div>{successMessage}</div>}
         <div>
           {state.map((item) => (
             <div>
@@ -160,9 +172,9 @@ function Register() {
               {item.email}
               {item.aadhar}
               {item.address}
-              {item.referral}
-              {item.upi}
-              {item.question}
+              {/* {item.referral} */}
+              {/* {item.upi} */}
+              {item.secret_question}
               {item.answer}
             </div>
           ))}

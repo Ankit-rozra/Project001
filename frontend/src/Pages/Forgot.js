@@ -1,39 +1,68 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TopNav from './TopNav';
+import axios from 'axios';
 function Forgot() {
   const [email, setEmail] = useState('');
-  const [question, setQuestion] = useState('');
+  const [secret_question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
-  const users = useSelector((state) => state.authentication.credentials);
+  const [new_password, setNewPassword] = useState('');
+  const [confirm_new_password, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
+  // const users = useSelector((state) => state.authentication.credentials);
   const dispatch = useDispatch();
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const user = {
       email: email,
-      question: question,
+      secret_question: secret_question,
       answer: answer,
+      new_password: new_password,
+      confirm_new_password: confirm_new_password,
     };
-    const existingUser = users.find(
-      (u) =>
-        u.email === user.email &&
-        u.question === user.question &&
-        u.answer === user.answer
-    );
+    const jsonString = JSON.stringify(user);
+    try {
+      const response = await axios.put(
+        'http://mlmproject.pythonanywhere.com/users/forgetpassword/',
+        jsonString
+      );
 
-    if (existingUser) {
-      return;
+      // Check if the response contains the 'message' field
+      if (
+        response.data &&
+        response.data.message === 'Password updated successfully'
+      ) {
+        // Handle success (password change successful)
+        console.log('Password updated successfully');
+      } else {
+        // Handle failure (password change failed)
+        console.log('Password update failed');
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
     }
-    dispatch({
-      type: 'LOGIN',
-      payload: {
-        email: email,
-        question: question,
-        answer: answer,
-      },
-    });
+    // const existingUser = users.find(
+    //   (u) =>
+    //     u.email === user.email &&
+    //     u.question === user.question &&
+    //     u.answer === user.answer
+    // );
+
+    // if (existingUser) {
+    //   return;
+    // }
+    // dispatch({
+    //   type: 'LOGIN',
+    //   payload: {
+    //     email: email,
+    //     question: question,
+    //     answer: answer,
+    //   },
+    // });
     setEmail('');
     setQuestion('n/a');
     setAnswer('');
+    setNewPassword('');
+    setConfirmPassword('');
   };
   return (
     <div>
@@ -83,6 +112,22 @@ function Forgot() {
               placeholder="Answer"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="New Password"
+              value={new_password}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Confirm New Password"
+              value={confirm_new_password}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
           <div>

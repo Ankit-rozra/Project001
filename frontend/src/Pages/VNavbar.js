@@ -2,6 +2,7 @@ import React from 'react';
 import '../Css/vNav.css';
 import { useDispatch } from 'react-redux';
 import { selectOption } from '../Redux/actions/action';
+import { Link } from 'react-router-dom';
 
 function VNavbar() {
   const dispatch = useDispatch();
@@ -16,89 +17,106 @@ function VNavbar() {
         <nav className="navbar">
           <ul className="navbar-nav">
             <li className="nav-item top">
-              <a href="#" className="nav-link-top">
+              <Link to="#" className="nav-link-top">
                 <b>Company Name</b>
-              </a>
+              </Link>
             </li>
             <li
               className="nav-item"
               onClick={() => handleOptionClick('Dashboard')}
             >
-              <a href="/" className="nav-link">
+              <Link to="/" className="nav-link">
                 Dashboard
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 className="nav-link"
                 onClick={() => handleOptionClick('Products')}
                 href="/products"
-              >
+              > */}
+              <Link to="/products" className="nav-link">
+                {' '}
                 Products
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/rewards"
                 className="nav-link"
                 onClick={() => handleOptionClick('Rewards')}
-              >
+              > */}
+              <Link to="rewards" className="nav-link">
+                {' '}
                 Rewards
-              </a>
+              </Link>
             </li>{' '}
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/order"
                 className="nav-link"
                 onClick={() => handleOptionClick('Order')}
-              >
+              > */}
+              <Link to="/order" className="nav-link">
+                {' '}
                 Your Orders
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/about"
                 className="nav-link"
                 onClick={() => handleOptionClick('About us')}
-              >
+              > */}
+              <Link to="/about" className="nav-link">
+                {' '}
                 About us
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/contact"
                 className="nav-link"
                 onClick={() => handleOptionClick('Contact us')}
-              >
+              > */}
+              <Link to="/contact" className="nav-link">
+                {' '}
                 Contact us
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/login"
                 className="nav-link"
                 onClick={() => handleOptionClick('Login')}
-              >
+              > */}
+              <Link to="/login" className="nav-link">
+                {' '}
                 Login
-              </a>
+              </Link>
+              {/* </a> */}
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/register"
                 className="nav-link"
                 onClick={() => handleOptionClick('Register')}
-              >
+              > */}
+              <Link to="/register" className="nav-link">
+                {' '}
                 Sign up
-              </a>
+              </Link>
             </li>
             <li className="main-content">
-              <a
+              {/* <a
                 href="/network"
                 className="nav-link"
                 onClick={() => handleOptionClick('Add member')}
-              >
+              > */}
+              <Link to="/network" className="nav-link">
+                {' '}
                 My Network
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -106,54 +124,63 @@ function VNavbar() {
         <nav className="navbar">
           <ul className="navbar-nav">
             <li className="nav-item top">
-              <a href="#" className="nav-link-top">
-                <b>Company Name</b> <div className="admin">For Admin</div>
-              </a>
+              {/* <a href="#" className="nav-link-top"> */}
+              <Link to="#" className="nav-link-top"></Link>
+              <b>Company Name</b> <div className="admin">For Admin</div>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 className="nav-link"
                 onClick={() => handleOptionClick('Products')}
                 href="/requestOrder"
-              >
+              > */}
+              <Link to="/requestOrder" className="nav-link">
+                {' '}
                 Orders
-              </a>
+              </Link>
             </li>
             <li
               className="nav-item"
               onClick={() => handleOptionClick('Dashboard')}
             >
-              <a href="/requestReward" className="nav-link">
+              {/* <a href="/requestReward" className="nav-link"> */}
+              <Link to="/requestReward" className="nav-link">
+                {' '}
                 Rewards
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/requestRegister"
                 className="nav-link"
                 onClick={() => handleOptionClick('Rewards')}
-              >
+              > */}
+              <Link to="/requestRegister" className="nav-link">
+                {' '}
                 Register
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              {/* <a
                 href="/requestService"
                 className="nav-link"
                 onClick={() => handleOptionClick('Order')}
-              >
+              > */}
+              <Link to="/requestService" className="nav-link">
+                {' '}
                 Services
-              </a>
+              </Link>
             </li>
 
             <li className="main-content">
-              <a
+              {/* <a
                 href="/edit"
                 className="nav-link"
                 onClick={() => handleOptionClick('Add member')}
-              >
+              > */}
+              <Link to="/edit" className="nav-link">
                 Edit users
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
